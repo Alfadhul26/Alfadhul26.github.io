@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alfadhul Almubarak | Data Science &amp; Computational Biology Research</title>
+<meta name="description" content="Alfadhul Almubarak, MSc Dietetics graduate combining an NHS clinical foundation with Python data analysis for molecular and bioinformatics research.">
+<meta property="og:title" content="Alfadhul Almubarak | Data Science &amp; Computational Biology Research">
+<meta property="og:description" content="MSc Dietetics graduate combining an NHS clinical foundation with Python data analysis for molecular and bioinformatics research.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F8F9FA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#F8F9FA;--ink:#0A192F;--muted:#4A5568;--rule:#D5DAE1;--panel:#FFFFFF;--accent:#1F6F78;--serif:"Source Serif 4",Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;--side:250px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65}
+a{color:var(--ink);text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px;color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.6rem 1rem;z-index:20}
+.skip:focus{left:0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1rem}
+.mono{font-family:var(--mono);font-size:.875rem;color:var(--muted);letter-spacing:0}
+
+/* Navigation */
+.site-head{position:fixed;inset:0 auto 0 0;width:var(--side);padding:2rem 1.5rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;background:var(--bg);z-index:10}
+.brand{font-family:var(--serif);font-weight:600;font-size:1.25rem;text-decoration:none;line-height:1.2}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:.9375rem;color:var(--muted);margin-top:.35rem}
+nav ul{list-style:none;margin:2rem 0 0;padding:0}
+nav a{display:block;padding:.35rem 0 .35rem .85rem;border-left:2px solid var(--rule);color:var(--muted);text-decoration:none;font-size:1rem;transition:color .15s,border-color .15s}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--ink);border-left-color:var(--accent);font-weight:500}
+
+/* Layout */
+main{margin-left:var(--side);padding:0 clamp(1.25rem,5vw,4rem)}
+.wrap{max-width:900px;margin:0 auto}
+section{padding:4.5rem 0;border-top:1px solid var(--rule);scroll-margin-top:0}
+section:first-child{border-top:0}
+section>h2{font-size:clamp(1.75rem,3vw,2.25rem);margin-bottom:1.75rem}
+.prose{max-width:66ch}
+
+/* Hero */
+.hero{padding:6rem 0 5rem}
+.hero h1{font-size:clamp(3rem,9vw,6.25rem);letter-spacing:-.025em;line-height:1.02;margin-bottom:1.75rem}
+.hero .role{font-family:var(--serif);font-size:clamp(1.35rem,2.6vw,1.9rem);line-height:1.3;max-width:28ch;margin-bottom:1.5rem}
+.hero .statement{max-width:60ch;color:var(--muted);font-size:1.125rem;margin-bottom:2rem}
+.status{border-left:2px solid var(--accent);padding-left:1rem;margin:0 0 2.25rem;color:var(--muted);font-size:1rem}
+.btn{display:inline-block;font-weight:500;text-decoration:none;background:var(--ink);color:var(--bg);border:1.5px solid var(--ink);border-radius:4px;padding:.7rem 1.35rem;transition:background .15s,color .15s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+
+/* Pipeline (signature) */
+.fig{margin-top:.5rem}
+.pipe{display:grid;gap:1.25rem;grid-template-columns:1fr}
+.node{position:relative;color:var(--ink);background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:1rem 1.1rem}
+.node .mono{display:block;margin-bottom:.35rem}
+.node b{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:600;line-height:1.2;margin-bottom:.35rem}
+.node span.t{display:block;font-size:1rem;color:var(--muted);line-height:1.45}
+.node:not(:last-child)::after{content:"";position:absolute;left:50%;top:100%;height:1.25rem;border-left:2px solid var(--accent)}
+.node.in1::after{display:block}
+.node.in2::after{display:block}
+figcaption{margin-top:1rem;color:var(--muted);font-size:1rem;max-width:66ch}
+@media (min-width:1100px){
+ .pipe{grid-template-columns:repeat(4,1fr);grid-template-rows:auto auto;column-gap:2.25rem;row-gap:1rem}
+ .in1{grid-column:1;grid-row:1}.in2{grid-column:1;grid-row:2}
+ .st1{grid-column:2;grid-row:1/span 2}.st2{grid-column:3;grid-row:1/span 2}.st3{grid-column:4;grid-row:1/span 2}
+ .node{display:flex;flex-direction:column;justify-content:center}
+ .node:not(:last-child)::after{left:100%;top:50%;height:0;width:2.25rem;border-left:0;border-top:2px solid var(--accent)}
+ .node.st3::after{display:none}
+}
+
+/* Experience */
+.entry{display:grid;grid-template-columns:200px 1fr;gap:.5rem 2rem;padding:1.5rem 0;border-top:1px solid var(--rule)}
+.entry:first-of-type{border-top:0;padding-top:0}
+.entry .when{color:var(--muted);font-size:1rem}
+.entry h3{font-size:1.3rem;margin-bottom:.15rem}
+.entry .org{color:var(--muted);margin-bottom:.5rem}
+.entry p:last-child{margin-bottom:0}
+
+/* Projects */
+.project{border:1px solid var(--rule);border-left:3px solid var(--accent);background:var(--panel);border-radius:4px;padding:1.75rem 1.9rem;margin-bottom:1.5rem}
+.project.lead h3{font-size:1.75rem}
+.project h3{font-size:1.4rem;margin-bottom:.75rem}
+.project .tools{color:var(--muted);font-size:1rem;margin:1.1rem 0 1.4rem}
+.project .tools strong{color:var(--ink);font-weight:500}
+
+/* Skills */
+dl.skills{margin:0}
+.skills .row{display:grid;grid-template-columns:240px 1fr;gap:.25rem 2rem;padding:1rem 0;border-top:1px solid var(--rule)}
+.skills .row:first-child{border-top:0;padding-top:0}
+.skills dt{font-weight:600}
+.skills dd{margin:0;color:var(--muted)}
+
+/* Education */
+.edu{list-style:none;margin:0;padding:0}
+.edu li{display:grid;grid-template-columns:200px 1fr;gap:.25rem 2rem;padding:1rem 0;border-top:1px solid var(--rule)}
+.edu li:first-child{border-top:0;padding-top:0}
+.edu .when{color:var(--muted)}
+.edu strong{font-family:var(--serif);font-size:1.2rem;font-weight:600;display:block}
+.edu span.i{color:var(--muted)}
+
+/* Contact */
+.contact{list-style:none;margin:0;padding:0;max-width:520px}
+.contact li{display:grid;grid-template-columns:120px 1fr;gap:.25rem 1rem;padding:.85rem 0;border-top:1px solid var(--rule)}
+.contact li:first-child{border-top:0}
+.contact .k{color:var(--muted)}
+.contact a{overflow-wrap:anywhere}
+footer{margin-left:var(--side);padding:1.75rem clamp(1.25rem,5vw,4rem);border-top:1px solid var(--rule);color:var(--muted);font-size:1rem}
+footer div{max-width:900px;margin:0 auto}
+
+/* Tablet and phone */
+@media (max-width:900px){
+ :root{--side:0px}
+ .site-head{position:sticky;top:0;inset:auto;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1rem;padding:.75rem 1.25rem;border-right:0;border-bottom:1px solid var(--rule)}
+ .brand small{display:none}
+ nav{order:3;width:100%;overflow-x:auto}
+ nav ul{display:flex;gap:1.25rem;margin:0;white-space:nowrap}
+ nav a{border-left:0;border-bottom:2px solid transparent;padding:.35rem 0}
+ nav a.active{border-bottom-color:var(--accent)}
+ section{scroll-margin-top:7rem;padding:3.25rem 0}
+ .hero{padding:3.5rem 0 3rem}
+}
+@media (max-width:640px){
+ .entry,.skills .row,.edu li{grid-template-columns:1fr}
+ .contact li{grid-template-columns:1fr}
+ .project{padding:1.4rem 1.2rem}
+}
+@media (prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="site-head">
+  <a class="brand" href="#top">Alfadhul Almubarak<small>Data science &amp; computational biology</small></a>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <section class="hero" aria-labelledby="name">
+    <h1 id="name">Alfadhul Almubarak</h1>
+    <p class="role">Combining clinical precision with data science and computational biology research</p>
+    <p class="statement">MSc Dietetics graduate combining an NHS clinical foundation with Python data analysis to analyse biological datasets, with a research focus on molecular biology and bioinformatics.</p>
+    <p class="status">Currently completing a Data Science &amp; Machine Learning bootcamp.</p>
+    <a class="btn" href="#projects">View my work</a>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <div class="prose">
+      <p>I am an MSc Dietetics graduate with a BSc (First Class Honours) in Nutrition and Health, combining a clinical background in nutrition and dietetics with research interests in molecular biology and bioinformatics.</p>
+      <p>I am currently completing a Data Science and Machine Learning bootcamp and have finished a laboratory internship in molecular biology and biomedical research. I am building my skills in Python and data analysis to pursue further research in molecular medicine and computational biology.</p>
+    </div>
+  </section>
+
+  <section id="pipeline" aria-labelledby="pipe-h">
+    <h2 id="pipe-h">The clinical-to-code pipeline</h2>
+    <figure class="fig" style="margin:0">
+      <div class="pipe" role="group" aria-label="Clinical-to-code pipeline: clinical practice and laboratory work feed data preprocessing, then Python modelling, then research outcomes">
+        <div class="node in1"><span class="mono">Input</span><b>Clinical practice</b><span class="t">NHS dietetics across hospital and community care</span></div>
+        <div class="node in2"><span class="mono">Input</span><b>Laboratory work</b><span class="t">Microbiology and Molecular biology</span></div>
+        <div class="node st1"><span class="mono">Process</span><b>Data preprocessing</b><span class="t">Cleaning and structuring with Pandas</span></div>
+        <div class="node st2"><span class="mono">Process</span><b>Python modelling</b><span class="t">Analysis and modelling in Python, Visualisation with Matplotlib and Seaborn</span></div>
+        <div class="node st3"><span class="mono">Output</span><b>Research outcomes</b><span class="t">Findings, and the path to further research</span></div>
+      </div>
+      <figcaption><span class="mono">Fig. 1</span> My clinical and laboratory experience feeds each stage of my analytical work.</figcaption>
+    </figure>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <h2 id="exp-h">Experience</h2>
+    <article class="entry">
+      <div class="when">July 2026</div>
+      <div><h3>Summer Research Intern</h3><p class="org">Arabian Gulf University</p><p>Worked with cancer cell cultures, organoids, drug concentration calculations, bacterial miniprep/midiprep and confocal microscopy.</p></div>
+    </article>
+    <article class="entry">
+      <div class="when">Sept 2025 to June 2026</div>
+      <div><h3>University Lecturer</h3><p class="org">Ahlia University, Bahrain</p><p>Taught Dietetics, Microbiology, Food science, and Anatomy.</p></div>
+    </article>
+    <article class="entry">
+      <div class="when">March 2024 to June 2024</div>
+      <div><h3>Dietitian</h3><p class="org">Leeds Community Healthcare NHS Trust, UK</p><p>Provided dietetic interventions and presented on the mechanism of action of Tirzepatide.</p></div>
+    </article>
+    <article class="entry">
+      <div class="when">Sept 2023 to Dec 2023</div>
+      <div><h3>Dietitian</h3><p class="org">Leeds Teaching Hospitals NHS Trust, UK</p><p>Supported enteral and parenteral nutrition for oncology and surgical patients, and audited emergency laparotomy pathways.</p></div>
+    </article>
+    <article class="entry">
+      <div class="when">January 2023</div>
+      <div><h3>Dietetics Student</h3><p class="org">Leeds and York Partnership NHS Foundation Trust, UK</p><p>Worked in mental health and eating disorder dietetics.</p></div>
+    </article>
+  </section>
+
+  <section id="projects" aria-labelledby="proj-h">
+    <h2 id="proj-h">Projects</h2>
+    <article class="project lead">
+      <h3>CDC National Outbreak Reporting System (NORS) Data Pipeline Analysis</h3>
+      <p>Identifying the etiology of leading outbreaks using the CDC NORS dataset. I cleaned and analysed the dataset in Python, and produced visualisations. I examined how different etiologies vary in transmission modes, outbreak settings, outbreak size, hospitalization, and mortality rates.</p>
+      <p class="tools"><strong>Tools:</strong> Python, Pandas, Matplotlib, Seaborn</p>
+      <a class="btn ghost" href="https://github.com/Alfadhul26/NORS_Pandas_EDA_Project" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+    <article class="project">
+      <h3>Weather Tracking App</h3>
+      <p>Weather enthusiasts need one place to record what they observe and see how conditions change over time. I developed an interactive Streamlit application that lets users record observations, track trends with line graphs and compare multi-year historical data. It also provides API-based forecasts and produces LLM-generated weather summaries and recommendations.</p>
+      <p class="tools"><strong>Tools:</strong> Python, Streamlit, Pandas, OpenWeatherMap API, LLM API</p>
+      <a class="btn ghost" href="https://github.com/Alfadhul26/Weather_Tracker_Python_Project" target="_blank" rel="noopener">View on GitHub</a>
+    </article>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <h2 id="skills-h">Skills</h2>
+    <dl class="skills">
+      <div class="row"><dt>Programming and data analysis</dt><dd>Python, Pandas, NumPy</dd></div>
+      <div class="row"><dt>Data preparation</dt><dd>Data Cleaning &amp; Preprocessing</dd></div>
+      <div class="row"><dt>Visualisation</dt><dd>Matplotlib, Seaborn</dd></div>
+      <div class="row"><dt>Laboratory techniques</dt><dd>Cell Culture, Confocal Microscopy, Bacterial Miniprep/Midiprep, Drug Concentration Calculations</dd></div>
+      <div class="row"><dt>Research methods</dt><dd>Systematic Literature Reviews</dd></div>
+    </dl>
+  </section>
+
+  <section id="education" aria-labelledby="edu-h">
+    <h2 id="edu-h">Education and certifications</h2>
+    <ul class="edu">
+      <li><span class="when">Current</span><div><strong>Data Science &amp; Machine Learning Bootcamp - General Assembly</strong><span class="i">In progress</span></div></li>
+      <li><span class="when">2024</span><div><strong>MSc Dietetics</strong><span class="i">Leeds Beckett University</span></div></li>
+      <li><span class="when">2022</span><div><strong>BSc (Hons) Nutrition and Health, First Class Honours</strong><span class="i">Coventry University</span></div></li>
+    </ul>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <h2 id="contact-h">Contact</h2>
+    <p class="prose">I am open to conversations about data science and biomedical research.</p>
+    <ul class="contact">
+      <li><span class="k">Email</span><a href="mailto:alfadhelahmed17@gmail.com">alfadhelahmed17@gmail.com</a></li>
+      <li><span class="k">GitHub</span><a href="https://github.com/Alfadhul26" target="_blank" rel="noopener">github.com/Alfadhul26</a></li>
+      <li><span class="k">LinkedIn</span><a href="https://linkedin.com/in/alfadhul-almubarak" target="_blank" rel="noopener">linkedin.com/in/alfadhul-almubarak</a></li>
+    </ul>
+  </section>
+
+</div>
+</main>
+
+<footer><div>&copy; <span id="year">2026</span> Alfadhul Almubarak</div></footer>
+
+<script>
+(function(){
+  document.getElementById("year").textContent=new Date().getFullYear();
+
+  var links=document.querySelectorAll("nav a");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id)})}
+      });
+    },{rootMargin:"-30% 0px -60% 0px"});
+    document.querySelectorAll("main section[id]").forEach(function(s){io.observe(s)});
+  }
+})();
+</script>
+</body>
+</html>
